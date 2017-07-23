@@ -1,0 +1,12 @@
+[Service]
+ExecStart=/usr/bin/node /home/pi/speak/src/index.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=speak
+User=pi
+Group=pi
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

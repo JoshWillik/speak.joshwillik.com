@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 curl -XPOST -H 'Content-Type: application/json' \
   --data "{\"text\": \"${1:-testing}\"}" \
-  localhost:8888/
+  speak.joshwillik.com/

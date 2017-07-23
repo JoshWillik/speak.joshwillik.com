@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+cd $(dirname ${BASH_SOURCE[0]})/../
+ssh $1 mkdir speak
+scp -r src $1:speak/
+ssh $1 'sudo mv speak/src/speak.service /etc/systemd/system/speak.service && sudo systemctl daemon-reload && sudo systemctl restart speak'
