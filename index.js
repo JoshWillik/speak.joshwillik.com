@@ -3,14 +3,8 @@ const util = require('util')
 const express = require('express')
 const body_parser = require('body-parser')
 let speak = (text, voice) => util.promisify(say.speak.bind(say))(text, voice, 1)
-let voice_options = [
-  'voice_rab_diphone',
-  'voice_kal_diphone',
-  'voice_cmu_us_awb_cg',
-  'voice_cmu_us_slt_cg',
-  'voice_cmu_us_rms_cg',
-]
-let voice = voice_options[4]
+let port = 3677
+let voice = 'rab_diphone'
 
 express()
 .use(body_parser.json())
@@ -22,4 +16,4 @@ express()
     res.status(500).json({status: 'error'})
   })
 })
-.listen(8888, () => console.log('listening on :8888'))
+.listen(port, () => console.log(`listening on :${port}`))
